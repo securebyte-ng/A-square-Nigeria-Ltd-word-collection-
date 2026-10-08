@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Square Nigeria Ltd | Building & Plumbing Materials</title>
+
+  <meta name="description" content="A Square Nigeria Ltd supplies quality building, plumbing and construction materials in Nigeria.">
+  <meta name="keywords" content="A Square Nigeria Ltd, building materials, plumbing materials, pipes, construction Nigeria">
+  <meta name="author" content="A Square Nigeria Ltd">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+
+      <div class="logo-area">
+        <h1>A SQUARE NIGERIA LTD</h1>
+        <p>Building Materials • Plumbing • Construction Solutions</p>
+      </div>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section id="home" class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+          <p class="hero-label">QUALITY • TRUST • PROFESSIONAL SERVICE</p>
+
+          <h2>Your Reliable Partner for Building & Plumbing Materials</h2>
+
+          <p>
+            A Square Nigeria Ltd provides quality materials and dependable
+            solutions for construction, plumbing and building projects.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="btn">View Products</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="features">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">WHAT WE DO</p>
+          <h2>Our Services</h2>
+          <p>
+            Professional supply and support for building and construction
+            projects.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <h3>Building Materials</h3>
+            <p>
+              Quality materials for residential, commercial and construction
+              projects.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Plumbing Materials</h3>
+            <p>
+              Pipes, fittings and plumbing products for reliable installations.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Project Supply</h3>
+            <p>
+              Material supply support for contractors, builders and property
+              developers.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">OUR PRODUCTS</p>
+          <h2>Featured Products</h2>
+          <p>
+            Explore some of the products available from A Square Nigeria Ltd.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <h3>Pipes</h3>
+            <p>
+              Quality pipes and plumbing solutions for different applications.
+            </p>
+            <a href="#contact" class="text-link">Enquire Now</a>
+          </article>
+
+          <article class="card">
+            <h3>Pipe Fittings</h3>
+            <p>
+              Reliable fittings and accessories for plumbing installations.
+            </p>
+            <a href="#contact" class="text-link">Enquire Now</a>
+          </article>
+
+          <article class="card">
+            <h3>Building Supplies</h3>
+            <p>
+              Essential materials for building and construction projects.
+            </p>
+            <a href="#contact" class="text-link">Enquire Now</a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-grid">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">OUR WORK & PRODUCTS</p>
+          <h2>Gallery</h2>
+          <p>
+            Pictures and media showcasing our products and services.
+          </p>
+        </div>
+
+        <div class="gallery">
+
+          <figure>
+            <div class="media-placeholder">
+              A Square Nigeria Ltd
+            </div>
+            <figcaption>Building & Construction Materials</figcaption>
+          </figure>
+
+          <figure>
+            <div class="media-placeholder">
+              Plumbing Solutions
+            </div>
+            <figcaption>Plumbing Materials</figcaption>
+          </figure>
+
+          <figure>
+            <div class="media-placeholder">
+              Quality Products
+            </div>
+            <figcaption>Quality Materials</figcaption>
+          </figure>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- VIDEO -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">VIDEO</p>
+          <h2>See Our Products</h2>
+          <p>
+            Product and company videos can be added here.
+          </p>
+        </div>
+
+        <div class="video-box">
+          <p>Company / Product Video</p>
+          <span>Video will be added here.</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-grid">
+      <div class="container">
+
+        <div class="about-content">
+          <p class="section-label">ABOUT US</p>
+
+          <h2>A Square Nigeria Ltd</h2>
+
+          <p>
+            A Square Nigeria Ltd is focused on providing quality building,
+            plumbing and construction materials to customers and project
+            professionals.
+          </p>
+
+          <p>
+            Our goal is to provide dependable products, professional service
+            and a trustworthy experience for every customer.
+          </p>
+
+          <h3>Why Choose Us?</h3>
+
+          <ul>
+            <li>Quality products</li>
+            <li>Professional service</li>
+            <li>Reliable supply</li>
+            <li>Customer-focused approach</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-grid">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">GET IN TOUCH</p>
+          <h2>Contact A Square Nigeria Ltd</h2>
+          <p>
+            Contact us for product enquiries, quotations and project supply.
+          </p>
+        </div>
+
+        <div class="contact-card">
+
+          <p>
+            <strong>Location:</strong>
+            Mararaba, Karu LGA, Nasarawa State, Nigeria
+          </p>
+
+          <p>
+            <strong>Service Area:</strong>
+            Nasarawa State & Abuja
+          </p>
+
+          <p>
+            <strong>Phone:</strong>
+            Contact us for enquiries
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            Contact us for business enquiries
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        &copy; 2026 A Square Nigeria Ltd. All rights reserved.
+      </p>
+
+      <p>
+        Building Materials • Plumbing • Construction Solutions
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
