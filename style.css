@@ -1,0 +1,359 @@
+/* ================================
+   A SQUARE NIGERIA LTD
+   Professional Website Styles
+   ================================ */
+
+:root {
+  --primary: #0b3d62;
+  --primary-dark: #072b45;
+  --accent: #d99a00;
+  --light: #f5f7fa;
+  --white: #ffffff;
+  --text: #1f2933;
+  --muted: #667085;
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+/* Header */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  background:
+    linear-gradient(rgba(7, 43, 69, 0.86), rgba(7, 43, 69, 0.86)),
+    url("hero.jpg") center/cover no-repeat;
+  color: var(--white);
+  padding: 110px 0;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  color: #eef3f7;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* About */
+.about {
+  background: var(--light);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-image {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Why Us */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature {
+  text-align: center;
+  padding: 30px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* Gallery */
+.gallery {
+  background: var(--light);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Video */
+.video-wrapper {
+  max-width: 850px;
+  margin: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* Contact */
+.contact {
+  background: var(--primary-dark);
+  color: var(--white);
+}
+
+.contact .section-heading h2 {
+  color: var(--white);
+}
+
+.contact .section-heading p {
+  color: #dbe5ec;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.contact-box {
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+}
+
+.contact-box h3 {
+  margin-bottom: 15px;
+}
+
+.contact-item {
+  margin: 12px 0;
+  color: #e6edf2;
+}
+
+.contact-item strong {
+  color: var(--white);
+}
+
+/* Footer */
+footer {
+  background: #041c2d;
+  color: #cbd5df;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .navbar {
+    flex-direction: column;
+    padding: 18px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .card-grid,
+  .features,
+  .gallery-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+}
