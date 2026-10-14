@@ -1,185 +1,394 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Square Nigeria Ltd | Building Materials</title>
+<meta name="description" content="A Square Nigeria Ltd — building materials, plumbing supplies and construction solutions in Nigeria.">
 
-    <title>A Square Nigeria Ltd | Building Materials</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta name="description"
-          content="A Square Nigeria Ltd supplies building materials, plumbing products and construction solutions.">
+:root {
+  --blue: #103b70;
+  --dark: #092544;
+  --gold: #f5b82e;
+  --light: #f4f7fb;
+}
 
-    <link rel="stylesheet" href="style.css">
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #263548;
+  background: var(--light);
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+header {
+  background: var(--dark);
+  color: white;
+  padding: 20px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo h1 { font-size: 25px; }
+.logo span { color: var(--gold); }
+.logo p { font-size: 13px; color: #dce7f4; }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  background: linear-gradient(120deg, #092544, #18538c);
+  color: white;
+  padding: 85px 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto 25px;
+  color: #e5edf7;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #172b42;
+  padding: 12px 23px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section { padding: 60px 0; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  color: var(--blue);
+  font-size: 30px;
+}
+
+.section-title p { color: #66778a; }
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.service {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #102b4810;
+  border-bottom: 3px solid var(--gold);
+}
+
+.service h3 { color: var(--blue); margin-bottom: 10px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px #102b4815;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  background: #e1e7ef;
+}
+
+.photo-card h3 { color: var(--blue); padding: 12px 15px 0; }
+.photo-card p { padding: 0 15px 16px; font-size: 14px; }
+
+.about {
+  background: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  align-items: center;
+}
+
+.about h2 { color: var(--blue); margin-bottom: 15px; }
+
+.about ul { padding-left: 20px; margin-top: 12px; }
+
+.contact {
+  background: #e8eff8;
+  text-align: center;
+}
+
+.contact p { margin: 10px 0 20px; }
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer span { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .header-inner { justify-content: center; text-align: center; }
+  nav { justify-content: center; gap: 12px; }
+  .hero { padding: 60px 0; }
+  section { padding: 45px 0; }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="logo-area">
-                <h1>A SQUARE NIGERIA LTD</h1>
-                <p>Building Materials • Plumbing • Construction Solutions</p>
-            </div>
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <h1>A SQUARE <span>NIGERIA LTD</span></h1>
+      <p>Building Materials • Plumbing • Construction</p>
+    </div>
 
-            <nav class="main-nav">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#products">Products</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <main>
+<main>
+  <section class="hero" id="home">
+    <div class="container">
+      <h2>Building Your Vision,<br>One Project at a Time</h2>
+      <p>
+        Explore quality building materials, plumbing supplies
+        and construction products for your next project.
+      </p>
+      <a class="btn" href="#gallery">Explore Our Gallery</a>
+    </div>
+  </section>
 
-        <!-- HOME SECTION -->
-        <section id="home" class="hero">
-            <div class="container hero-content">
-                <div>
-                    <p class="hero-label">QUALITY • TRUST • RELIABILITY</p>
-                    <h2>Your Reliable Partner for Building Materials</h2>
-                    <p>
-                        Quality materials and dependable plumbing
-                        supplies for your building projects.
-                    </p>
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Products & Services</h2>
+        <p>Materials and solutions for your building projects.</p>
+      </div>
 
-                    <div class="hero-buttons">
-                        <a href="#products" class="btn">View Products</a>
-                        <a href="#contact" class="btn">Contact Us</a>
-                    </div>
-                </div>
+      <div class="services">
+        <article class="service">
+          <h3>Building Materials</h3>
+          <p>Materials and supplies for residential and commercial construction.</p>
+        </article>
 
-                <div class="hero-image">
-                    <img
-                        src="fce753d6c37447418cb5873961a9fca5.jpg"
-                        alt="Stainless steel kitchen faucet">
-                </div>
-            </div>
-        </section>
+        <article class="service">
+          <h3>Plumbing Supplies</h3>
+          <p>Explore plumbing products and fittings for your projects.</p>
+        </article>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="feature-section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">WHAT WE OFFER</p>
-                    <h2>Our Services</h2>
-                </div>
+        <article class="service">
+          <h3>Construction</h3>
+          <p>Solutions and supplies to support building work.</p>
+        </article>
 
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>Building Materials</h3>
-                        <p>Materials for residential and commercial projects.</p>
-                    </article>
+        <article class="service">
+          <h3>Product Gallery</h3>
+          <p>Browse pictures of our products and materials.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                    <article class="card">
-                        <h3>Plumbing Supplies</h3>
-                        <p>Quality plumbing products for installation and repairs.</p>
-                    </article>
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Product Gallery</h2>
+        <p>Browse our building materials and product pictures.</p>
+      </div>
 
-                    <article class="card">
-                        <h3>Construction Solutions</h3>
-                        <p>Reliable supplies for your construction needs.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+      <div class="gallery-grid">
 
-        <!-- PRODUCTS SECTION -->
-        <section id="products" class="products-section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">OUR COLLECTION</p>
-                    <h2>Featured Products</h2>
-                </div>
+        <article class="photo-card">
+          <img src="IMG-20260822-WA0059.jpg"
+               alt="Building materials"
+               onerror="this.style.display='none'">
+          <h3>Building Materials</h3>
+          <p>Products for your construction needs.</p>
+        </article>
 
-                <div class="card-grid">
+        <article class="photo-card">
+          <img src="f9493ecb0aed44df986f6fd4d82d3cda.jpg"
+               alt="Construction product"
+               onerror="this.style.display='none'">
+          <h3>Construction Products</h3>
+          <p>Explore our product collection.</p>
+        </article>
 
-                    <article class="card">
-                        <img
-                            src="fce753d6c37447418cb5873961a9fca5.jpg"
-                            alt="Stainless steel kitchen faucet">
+        <article class="photo-card">
+          <img src="fac8dee5d826475f87c67feac8559740.jpg"
+               alt="Building supply"
+               onerror="this.style.display='none'">
+          <h3>Building Supplies</h3>
+          <p>Materials for building projects.</p>
+        </article>
 
-                        <h3>Kitchen Faucets</h3>
-                        <p>Modern taps for kitchens and plumbing installations.</p>
-                    </article>
+        <article class="photo-card">
+          <img src="fbf68a72e6fe4f009d0a98fa8db0b9b5.jpg"
+               alt="Construction material"
+               onerror="this.style.display='none'">
+          <h3>Quality Materials</h3>
+          <p>Browse products in our collection.</p>
+        </article>
 
-                    <article class="card">
-                        <img
-                            src="IMG-20260822-WA0059.jpg"
-                            alt="Plumbing product">
+        <article class="photo-card">
+          <img src="fce753d6c37447418cb5873961a9fca5.jpg"
+               alt="Building product"
+               onerror="this.style.display='none'">
+          <h3>Product Collection</h3>
+          <p>Find materials for your project.</p>
+        </article>
 
-                        <h3>Plumbing Products</h3>
-                        <p>Products for plumbing installations and repairs.</p>
-                    </article>
+        <article class="photo-card">
+          <img src="fda6124ec23542c8ad0cf3d70db302b2.jpg"
+               alt="Building supplies"
+               onerror="this.style.display='none'">
+          <h3>Building Supplies</h3>
+          <p>See our range of products.</p>
+        </article>
 
-                    <article class="card">
-                        <img
-                            src="fdb83a4503034583b384de2e361.jpg"
-                            alt="Plumbing drainage products">
+        <article class="photo-card">
+          <img src="fdb83a4503034583b384de2e361c8f0e.jpg"
+               alt="Construction supplies"
+               onerror="this.style.display='none'">
+          <h3>Construction Supplies</h3>
+          <p>Products for building projects.</p>
+        </article>
 
-                        <h3>Drainage Products</h3>
-                        <p>Drainage fittings and accessories for building projects.</p>
-                    </article>
+        <article class="photo-card">
+          <img src="fdbf87ab81a340b996af3e26b9b4667c.jpg"
+               alt="Plumbing and building product"
+               onerror="this.style.display='none'">
+          <h3>Plumbing & Building</h3>
+          <p>Explore our available materials.</p>
+        </article>
 
-                </div>
-            </div>
-        </section>
+        <article class="photo-card">
+          <img src="ff6b5fd924204490839be792494a9a4b.jpg"
+               alt="Building material product"
+               onerror="this.style.display='none'">
+          <h3>Product Display</h3>
+          <p>Building materials for different needs.</p>
+        </article>
 
-        <!-- GALLERY SECTION -->
-        <section id="gallery" class="gallery-section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">OUR PRODUCTS</p>
-                    <h2>Product Gallery</h2>
-                </div>
+        <article class="photo-card">
+          <img src="ff78dd38b21d408e90b8c779bef55dc4.jpg"
+               alt="Construction material"
+               onerror="this.style.display='none'">
+          <h3>Construction Materials</h3>
+          <p>Discover our product range.</p>
+        </article>
 
-                <div class="card-grid">
-                    <img
-                        src="fac8dee5d826475f87c67feac8559.jpg"
-                        alt="Building and plumbing product">
+        <article class="photo-card">
+          <img src="ff068946f9484cea9f9ea84a2f6b77bf.jpg"
+               alt="Building supplies"
+               onerror="this.style.display='none'">
+          <h3>Building Products</h3>
+          <p>Materials for your next project.</p>
+        </article>
 
-                    <img
-                        src="fbf68a72e6fe4f009d0a98fa8db0b.jpg"
-                        alt="Construction supply">
+      </div>
+    </div>
+  </section>
 
-                    <img
-                        src="ff6b5fd924204490839be792494a.jpg"
-                        alt="Plumbing accessory">
-                </div>
-            </div>
-        </section>
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <h2>About A Square Nigeria Ltd</h2>
+        <p>
+          A Square Nigeria Ltd focuses on building materials,
+          plumbing products and construction supplies.
+          Our website makes it easier to explore our products
+          and learn about our services.
+        </p>
+      </div>
 
-        <!-- ABOUT SECTION -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2>About A Square Nigeria Ltd</h2>
-                <p>
-                    We provide building materials, plumbing supplies
-                    and construction products to support your projects.
-                </p>
-            </div>
-        </section>
+      <div>
+        <h2>Why Explore Our Products?</h2>
+        <ul>
+          <li>A convenient product gallery.</li>
+          <li>Easy navigation on phones and computers.</li>
+          <li>Product categories for building projects.</li>
+          <li>A simple way to contact the business.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Contact A Square Nigeria Ltd for product enquiries.</p>
-                <p>Location: Mararaba, Karu, Nasarawa State, Nigeria</p>
-            </div>
-        </section>
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Interested in our products or services?</p>
+      </div>
+      <p>Contact A Square Nigeria Ltd to discuss your requirements.</p>
+      <p>Please add your verified business phone number and email here.</p>
+    </div>
+  </section>
+</main>
 
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 A Square Nigeria Ltd. All rights reserved.</p>
-        </div>
-    </footer>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <span>A Square Nigeria Ltd</span>. All rights reserved.</p>
+  </div>
+</footer>
 
 </body>
 </html>
