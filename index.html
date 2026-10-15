@@ -1,505 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A Square Nigeria Ltd - Building Materials, Plumbing and Construction Products in Mararaba, Nasarawa State, Nigeria.">
-<title>A Square Nigeria Ltd | Building Materials & Plumbing</title>
-
-<style>
-:root {
-  --navy: #073b78;
-  --blue: #0868b8;
-  --yellow: #ffc928;
-  --ink: #172638;
-  --muted: #5b6877;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  line-height: 1.6;
-  background: #f7faff;
-}
-img, video { max-width: 100%; display: block; }
-.container { width: min(1160px, 92%); margin: auto; }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--navy);
-  color: white;
-}
-.nav {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 12px 0;
-}
-.brand { font-size: 1.4rem; font-weight: 800; }
-.brand span { color: var(--yellow); }
-.tagline { font-size: .82rem; color: #dbeafe; }
-.navlinks { display: flex; gap: 15px; flex-wrap: wrap; }
-.navlinks a { color: white; text-decoration: none; font-weight: bold; }
-.navlinks a:hover { color: var(--yellow); }
-
-.hero {
-  background: linear-gradient(120deg, #052a55, #087bc4);
-  color: white;
-  padding: 100px 0;
-  text-align: center;
-}
-.hero h1 {
-  font-size: clamp(2.1rem, 5vw, 3.6rem);
-  line-height: 1.15;
-  max-width: 850px;
-  margin: 0 auto 18px;
-}
-.hero p { max-width: 760px; margin: 0 auto 28px; }
-.btn {
-  display: inline-block;
-  background: var(--yellow);
-  color: #302600;
-  padding: 13px 22px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-}
-section { padding: 65px 0; }
-.section-head {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 32px;
-}
-.section-head h2 { color: var(--navy); font-size: 2rem; }
-.section-head p { color: var(--muted); }
-
-.service-grid, .gallery, .video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-.service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.service, .product-card, .video-card, .about-panel, .contact-card {
-  background: white;
-  border: 1px solid #dce5ee;
-  border-radius: 14px;
-  overflow: hidden;
-}
-.service { padding: 22px; }
-.service h3, .product-info h3 { color: var(--navy); }
-.service p, .product-info p { color: var(--muted); }
-
-.gallery-section { background: #edf6ff; }
-.filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 26px;
-}
-.filter {
-  cursor: pointer;
-  border: 1px solid #b9d5ef;
-  background: white;
-  color: var(--navy);
-  padding: 9px 15px;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.filter.active, .filter:hover { background: var(--navy); color: white; }
-.product-card[hidden] { display: none; }
-.product-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  background: #e7edf3;
-}
-.product-info { padding: 16px; }
-.product-info h3 { margin: 0 0 6px; }
-.product-info p { font-size: .94rem; }
-.product-info a { color: var(--blue); font-weight: bold; }
-
-.about-grid, .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-.about-panel, .contact-card { padding: 25px; }
-.about-panel h2, .contact-card h3 { color: var(--navy); }
-.checklist li { margin: 8px 0; }
-
-.video-section { background: white; }
-.video-card video {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: #111;
-  object-fit: contain;
-}
-.video-card p { padding: 12px; margin: 0; font-weight: bold; }
-
-.contact-section {
-  background: linear-gradient(135deg, #073b78, #075ba6);
-  color: white;
-}
-.contact-section .section-head h2,
-.contact-section .section-head p { color: white; }
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 12px 0;
-}
-.contact-actions a {
-  display: inline-block;
-  background: #e8f4ff;
-  color: var(--navy);
-  padding: 9px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.contact-actions .whatsapp {
-  background: #e5f8ec;
-  color: #116c36;
-}
-.small-note { font-size: .88rem; color: var(--muted); }
-
-footer {
-  background: #052a55;
-  color: #dbeafe;
-  text-align: center;
-  padding: 23px 0;
-}
-
-@media (max-width: 900px) {
-  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gallery, .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .nav { align-items: flex-start; flex-direction: column; }
-}
-@media (max-width: 600px) {
-  .service-grid, .gallery, .video-grid,
-  .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .product-card img { height: 260px; }
-  section { padding: 50px 0; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Square Nigeria Ltd supplies building materials, plumbing products, bathroom fittings, sanitary ware and pipes in Mararaba, Nasarawa State, Nigeria.">
+  <title>A Square Nigeria Ltd | Building Materials & Plumbing</title>
+  <style>
+    :root{--navy:#073b78;--blue:#0868b8;--sky:#eaf5ff;--yellow:#ffc928;--ink:#172638;--muted:#5b6877;--white:#fff;--line:#dce5ee;--shadow:0 12px 30px rgba(8,40,75,.12)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:90px} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#f7faff} img,video{display:block;max-width:100%} a{color:inherit} .container{width:min(1160px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:var(--navy);color:white;box-shadow:0 4px 16px rgba(0,0,0,.14)} .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0}.brand{font-weight:800;letter-spacing:.3px;font-size:clamp(1rem,2.4vw,1.45rem);line-height:1.2}.brand span{color:var(--yellow)} .tagline{font-size:.82rem;color:#dbeafe;margin-top:5px}.navlinks{display:flex;gap:18px;flex-wrap:wrap;align-items:center}.navlinks a{text-decoration:none;font-size:.92rem;font-weight:700}.navlinks a:hover{color:var(--yellow)}
+    .hero{background:linear-gradient(120deg,rgba(3,35,75,.94),rgba(7,104,184,.82)),url('assets/images/blue-plumbing-pipes.jpg') center/cover;color:white;padding:100px 0 88px;text-align:center}.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.12;margin:0 auto 18px;max-width:850px}.hero p{font-size:1.1rem;max-width:760px;margin:0 auto 28px;color:#edf6ff}.btn{display:inline-block;background:var(--yellow);color:#302600;padding:13px 22px;border-radius:8px;font-weight:800;text-decoration:none;border:0}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+    section{padding:72px 0}.section-head{text-align:center;max-width:760px;margin:0 auto 32px}.section-head h2{font-size:clamp(1.7rem,3vw,2.35rem);margin:0 0 10px;color:var(--navy)}.section-head p{margin:0;color:var(--muted)} .service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.service{background:white;padding:24px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.service .symbol{font-size:1.8rem}.service h3{margin:10px 0 6px;color:var(--navy)}.service p{margin:0;color:var(--muted);font-size:.94rem}
+    .gallery-section{background:#edf6ff}.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 0 26px}.filter{cursor:pointer;border:1px solid #b9d5ef;background:white;color:var(--navy);padding:9px 15px;border-radius:30px;font-weight:700}.filter.active,.filter:hover{background:var(--navy);color:white}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.product-card{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}.product-card[hidden]{display:none}.product-card img{width:100%;height:280px;object-fit:cover;background:#e7edf3}.product-info{padding:17px 18px 20px}.product-info h3{margin:0 0 5px;color:var(--navy);font-size:1.08rem}.product-info p{margin:0;color:var(--muted);font-size:.93rem}.product-info a{display:inline-block;margin-top:12px;color:var(--blue);font-weight:800;text-decoration:none}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-panel{background:white;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}.about-panel h2{color:var(--navy);margin-top:0}.checklist{padding-left:20px}.checklist li{margin:8px 0}.video-section{background:#fff}.video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.video-card{border:1px solid var(--line);border-radius:13px;background:#f7faff;overflow:hidden}.video-card video{width:100%;aspect-ratio:16/10;background:#0b1622;object-fit:contain}.video-card p{margin:0;padding:12px 14px;font-weight:700;color:var(--navy)}
+    .contact-section{background:linear-gradient(135deg,#073b78,#075ba6);color:white}.contact-section .section-head h2,.contact-section .section-head p{color:white}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.contact-card{background:white;color:var(--ink);border-radius:15px;padding:25px;box-shadow:var(--shadow)}.contact-card h3{margin-top:0;color:var(--navy)}.contact-card p{margin:10px 0}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.contact-actions a{display:inline-block;text-decoration:none;background:#e8f4ff;color:var(--navy);font-weight:800;padding:9px 12px;border-radius:8px}.contact-actions a.whatsapp{background:#e5f8ec;color:#116c36}.small-note{font-size:.88rem;color:var(--muted)}footer{background:#052a55;color:#dbeafe;text-align:center;padding:23px 0;font-size:.9rem}footer strong{color:white}
+    @media(max-width:900px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery,.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:12px}}
+    @media(max-width:600px){.hero{padding:75px 0 65px}.navlinks{gap:10px}.navlinks a{font-size:.84rem}.service-grid,.gallery,.video-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.product-card img{height:260px}section{padding:54px 0}}
+  </style>
 </head>
-
 <body>
-<header>
-  <div class="container nav">
-    <div>
-      <div class="brand">A SQUARE <span>NIGERIA LTD</span></div>
-      <div class="tagline">Building Materials • Plumbing • Construction</div>
-    </div>
-    <nav class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#videos">Videos</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
+<header><div class="container nav"><div><div class="brand">A SQUARE <span>NIGERIA LTD</span></div><div class="tagline">Building Materials • Plumbing • Construction</div></div><nav class="navlinks" aria-label="Main navigation"><a href="#home">Home</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#videos">Videos</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
 <main>
-<section class="hero" id="home">
-  <div class="container">
-    <h1>Building Your Vision, One Project at a Time</h1>
-    <p>Explore quality building materials, plumbing pipes, bathroom basins, sanitary ware and construction products.</p>
-    <a class="btn" href="#gallery">Explore Our Gallery</a>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="section-head">
-      <h2>Our Products & Services</h2>
-      <p>Products for building, plumbing, bathroom finishing and renovation.</p>
-    </div>
-    <div class="service-grid">
-      <article class="service">
-        <h3>Plumbing Pipes</h3>
-        <p>Pipe supplies and flexible water hoses for plumbing projects.</p>
-      </article>
-      <article class="service">
-        <h3>Bathroom Basins</h3>
-        <p>Countertop and pedestal basins for different bathroom styles.</p>
-      </article>
-      <article class="service">
-        <h3>Sanitary Ware</h3>
-        <p>Toilets and bathroom fixtures for new buildings and renovations.</p>
-      </article>
-      <article class="service">
-        <h3>LED Mirrors</h3>
-        <p>Decorative illuminated mirrors for modern bathrooms.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="gallery-section" id="gallery">
-  <div class="container">
-    <div class="section-head">
-      <h2>Our Product Gallery</h2>
-      <p>Browse our product pictures and contact us to enquire about availability.</p>
-    </div>
-
-    <div class="filters">
-      <button class="filter active" data-filter="all">All Products</button>
-      <button class="filter" data-filter="pipes">Pipes</button>
-      <button class="filter" data-filter="mirrors">LED Mirrors</button>
-      <button class="filter" data-filter="basins">Basins & Bathtub</button>
-      <button class="filter" data-filter="toilets">Toilets</button>
-    </div>
-
-    <div class="gallery">
-
-      <article class="product-card" data-category="mirrors">
-        <img src="assets/images/wave-led-mirror.jpg" alt="Wave LED bathroom mirror" loading="lazy">
-        <div class="product-info">
-          <h3>Wave LED Mirror</h3>
-          <p>Decorative mirror with warm backlighting.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="mirrors">
-        <img src="assets/images/decorative-led-mirror.jpg" alt="Decorative LED mirror" loading="lazy">
-        <div class="product-info">
-          <h3>Decorative LED Mirror</h3>
-          <p>Mirror with an illuminated decorative border.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="mirrors">
-        <img src="assets/images/round-led-mirror.jpg" alt="Round LED mirror" loading="lazy">
-        <div class="product-info">
-          <h3>Round LED Mirror</h3>
-          <p>Round mirror with a decorative light border.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="pipes">
-        <img src="assets/images/blue-plumbing-pipes.jpg" alt="Blue plumbing pipes" loading="lazy">
-        <div class="product-info">
-          <h3>Blue Plumbing Pipes</h3>
-          <p>Pipe supplies for plumbing and construction.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="pipes">
-        <img src="assets/images/pipes-and-flexible-hose.jpg" alt="Pipes and flexible blue hose" loading="lazy">
-        <div class="product-info">
-          <h3>Pipes & Flexible Hose</h3>
-          <p>Different pipe sizes and flexible hose supplies.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="basins">
-        <img src="assets/images/drum-countertop-basin.jpg" alt="DRUM countertop basin" loading="lazy">
-        <div class="product-info">
-          <h3>DRUM Basin</h3>
-          <p>Modern white countertop wash basin.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="basins">
-        <img src="assets/images/sax-countertop-basin.jpg" alt="SAX countertop basin" loading="lazy">
-        <div class="product-info">
-          <h3>SAX Basin</h3>
-          <p>Compact countertop wash basin.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="basins">
-        <img src="assets/images/cello-countertop-basin.jpg" alt="CELLO countertop basin" loading="lazy">
-        <div class="product-info">
-          <h3>CELLO Basin</h3>
-          <p>Wide rectangular countertop basin.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="basins">
-        <img src="assets/images/pedestal-basin.jpg" alt="Pedestal wash basin" loading="lazy">
-        <div class="product-info">
-          <h3>Pedestal Basin</h3>
-          <p>Freestanding pedestal wash basin.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="basins">
-        <img src="assets/images/bathtub.jpg" alt="White bathtub" loading="lazy">
-        <div class="product-info">
-          <h3>Bathtub</h3>
-          <p>White bathtub for bathroom installations.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="toilets">
-        <img src="assets/images/poly-toilet.jpg" alt="POLY toilet" loading="lazy">
-        <div class="product-info">
-          <h3>POLY Toilet</h3>
-          <p>White toilet model.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="toilets">
-        <img src="assets/images/tulip-toilet.jpg" alt="TULIP toilet" loading="lazy">
-        <div class="product-info">
-          <h3>TULIP Toilet</h3>
-          <p>White toilet with a rounded bowl.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="toilets">
-        <img src="assets/images/isis-toilet.jpg" alt="ISIS toilet" loading="lazy">
-        <div class="product-info">
-          <h3>ISIS Toilet</h3>
-          <p>Modern close-coupled toilet design.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-      <article class="product-card" data-category="toilets">
-        <img src="assets/images/ross-toilet.jpg" alt="ROSS toilet" loading="lazy">
-        <div class="product-info">
-          <h3>ROSS Toilet</h3>
-          <p>Contemporary white toilet model.</p>
-          <a href="#contact">Enquire about this product</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="video-section" id="videos">
-  <div class="container">
-    <div class="section-head">
-      <h2>Product Videos</h2>
-      <p>Watch our product videos below.</p>
-    </div>
-    <div class="video-grid">
-      <article class="video-card">
-        <video controls preload="metadata" playsinline>
-          <source src="assets/videos/product-video-01.mp4" type="video/mp4">
-        </video>
-        <p>Product Video 1</p>
-      </article>
-      <article class="video-card">
-        <video controls preload="metadata" playsinline>
-          <source src="assets/videos/product-video-02.mp4" type="video/mp4">
-        </video>
-        <p>Product Video 2</p>
-      </article>
-      <article class="video-card">
-        <video controls preload="metadata" playsinline>
-          <source src="assets/videos/product-video-03.mp4" type="video/mp4">
-        </video>
-        <p>Product Video 3</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-panel">
-      <h2>About A Square Nigeria Ltd</h2>
-      <p>A Square Nigeria Ltd provides building materials, plumbing products and bathroom fittings for construction, renovation and finishing projects.</p>
-      <p>Contact us for product availability, sizes and specifications.</p>
-    </div>
-    <div class="about-panel">
-      <h2>Why Choose Us?</h2>
-      <ul class="checklist">
-        <li>A product gallery for easy browsing</li>
-        <li>Phone and WhatsApp contact options</li>
-        <li>Building and plumbing product categories</li>
-        <li>Product videos in one place</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="section-head">
-      <h2>Contact A Square Nigeria Ltd</h2>
-      <p>Interested in our products or services? Contact us today.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Business Address</h3>
-        <p><strong>A Square Nigeria Ltd</strong></p>
-        <p>Mararaba, Karu LGA,<br>
-        Nasarawa State, Nigeria</p>
-        <p class="small-note">Please contact us to confirm product availability before visiting.</p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Call or WhatsApp Us</h3>
-
-        <p><strong>+234 902 770 2884</strong></p>
-        <div class="contact-actions">
-          <a href="tel:+2349027702884">Call Number 1</a>
-          <a class="whatsapp" href="https://wa.me/2349027702884" target="_blank" rel="noopener">WhatsApp Number 1</a>
-        </div>
-
-        <p><strong>+234 907 112 0203</strong></p>
-        <div class="contact-actions">
-          <a href="tel:+2349071120203">Call Number 2</a>
-          <a class="whatsapp" href="https://wa.me/2349071120203" target="_blank" rel="noopener">WhatsApp Number 2</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container">
-    © 2026 <strong>A Square Nigeria Ltd</strong>. All rights reserved.
-  </div>
-</footer>
-
+<section class="hero" id="home"><div class="container"><h1>Building Your Vision, One Project at a Time</h1><p>Explore our building materials, plumbing pipes, bathroom basins, sanitary ware and other products for your next project.</p><a class="btn" href="#gallery">Explore Our Product Gallery</a></div></section>
+<section id="services"><div class="container"><div class="section-head"><h2>Our Products & Services</h2><p>Products for building, plumbing, bathroom finishing and renovation. Contact us to confirm availability and specifications.</p></div><div class="service-grid"><article class="service"><div class="symbol">▤</div><h3>Plumbing Pipes</h3><p>Pipe supplies and flexible water hose for plumbing projects.</p></article><article class="service"><div class="symbol">◉</div><h3>Bathroom Basins</h3><p>Countertop and pedestal basin designs for different bathroom styles.</p></article><article class="service"><div class="symbol">▱</div><h3>Sanitary Ware</h3><p>Toilet models and bathroom fixtures for new builds and renovations.</p></article><article class="service"><div class="symbol">✧</div><h3>LED Mirrors</h3><p>Decorative illuminated mirrors for contemporary bathroom spaces.</p></article></div></div></section>
+<section class="gallery-section" id="gallery"><div class="container"><div class="section-head"><h2>Product Gallery</h2><p>Browse the product pictures. Use the category buttons to narrow the gallery, then contact us to ask about a product.</p></div><div class="filters" aria-label="Filter products"><button class="filter active" data-filter="all">All Products</button><button class="filter" data-filter="pipes">Pipes</button><button class="filter" data-filter="mirrors">LED Mirrors</button><button class="filter" data-filter="basins">Basins & Bathtub</button><button class="filter" data-filter="toilets">Toilets</button></div><div class="gallery">
+<article class="product-card" data-category="mirrors"><img src="assets/images/wave-led-mirror.jpg" alt="Wave-shaped LED bathroom mirror" loading="lazy"><div class="product-info"><h3>Wave LED Mirror</h3><p>Decorative mirror with warm backlighting.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="mirrors"><img src="assets/images/decorative-led-mirror.jpg" alt="Rectangular decorative LED mirror" loading="lazy"><div class="product-info"><h3>Decorative LED Mirror</h3><p>Rectangular mirror with illuminated decorative border.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="mirrors"><img src="assets/images/round-led-mirror.jpg" alt="Round LED bathroom mirror" loading="lazy"><div class="product-info"><h3>Round LED Mirror</h3><p>Round mirror with a bright decorative border.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="pipes"><img src="assets/images/blue-plumbing-pipes.jpg" alt="Blue plumbing pipes stacked outside" loading="lazy"><div class="product-info"><h3>Blue Plumbing Pipes</h3><p>Pipe supplies for plumbing and construction work.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="pipes"><img src="assets/images/pipes-and-flexible-hose.jpg" alt="Plumbing pipes and coils of flexible blue hose" loading="lazy"><div class="product-info"><h3>Pipes & Flexible Hose</h3><p>Different pipe sizes and flexible hose supplies.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="basins"><img src="assets/images/drum-countertop-basin.jpg" alt="DRUM countertop wash basin" loading="lazy"><div class="product-info"><h3>DRUM Countertop Basin</h3><p>Modern white countertop wash basin.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="basins"><img src="assets/images/sax-countertop-basin.jpg" alt="SAX countertop wash basin" loading="lazy"><div class="product-info"><h3>SAX Countertop Basin</h3><p>Compact countertop wash basin design.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="basins"><img src="assets/images/cello-countertop-basin.jpg" alt="CELLO countertop wash basin" loading="lazy"><div class="product-info"><h3>CELLO Countertop Basin</h3><p>Wide rectangular countertop basin design.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="basins"><img src="assets/images/pedestal-basin.jpg" alt="White pedestal wash basin" loading="lazy"><div class="product-info"><h3>Pedestal Wash Basin</h3><p>Freestanding pedestal basin for bathroom spaces.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="basins"><img src="assets/images/bathtub.jpg" alt="White bathtub with handles" loading="lazy"><div class="product-info"><h3>Bathtub</h3><p>White bathtub for bathroom installations.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="toilets"><img src="assets/images/poly-toilet.jpg" alt="POLY toilet model" loading="lazy"><div class="product-info"><h3>POLY Toilet</h3><p>White toilet model.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="toilets"><img src="assets/images/tulip-toilet.jpg" alt="TULIP toilet model" loading="lazy"><div class="product-info"><h3>TULIP Toilet</h3><p>White toilet model with a rounded bowl.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="toilets"><img src="assets/images/isis-toilet.jpg" alt="ISIS toilet model" loading="lazy"><div class="product-info"><h3>ISIS Toilet</h3><p>Modern close-coupled toilet design.</p><a href="#contact">Enquire about this product →</a></div></article>
+<article class="product-card" data-category="toilets"><img src="assets/images/ross-toilet.jpg" alt="ROSS toilet model" loading="lazy"><div class="product-info"><h3>ROSS Toilet</h3><p>White toilet model with a contemporary shape.</p><a href="#contact">Enquire about this product →</a></div></article>
+</div></div></section>
+<section class="video-section" id="videos"><div class="container"><div class="section-head"><h2>Product Videos</h2><p>Watch the supplied product videos. Press play to view a video.</p></div><div class="video-grid">
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-01.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 01</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-02.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 02</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-03.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 03</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-04.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 04</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-05.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 05</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-06.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 06</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-07.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 07</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-08.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 08</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-09.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 09</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-10.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 10</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-11.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 11</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-12.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 12</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-13.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 13</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-14.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 14</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-15.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 15</p></article>
+<article class="video-card"><video controls preload="metadata" playsinline><source src="assets/videos/product-video-16.mp4" type="video/mp4">Your browser does not support video playback.</video><p>Product Video 16</p></article>
+</div></div></section>
+<section id="about"><div class="container about-grid"><div class="about-panel"><h2>About A Square Nigeria Ltd</h2><p>A Square Nigeria Ltd provides building materials, plumbing products and bathroom fittings for customers working on construction, renovation and finishing projects.</p><p>Browse the gallery to see examples of products and contact us for current availability, sizes and specifications.</p></div><div class="about-panel"><h2>Why Contact Us?</h2><ul class="checklist"><li>Product pictures grouped by category</li><li>Phone and WhatsApp contact options</li><li>Convenient contact details for enquiries</li><li>Product videos in one place</li></ul></div></div></section>
+<section class="contact-section" id="contact"><div class="container"><div class="section-head"><h2>Contact A Square Nigeria Ltd</h2><p>Interested in our products or services? Contact us today.</p></div><div class="contact-grid"><div class="contact-card"><h3>Business Address</h3><p><strong>A Square Nigeria Ltd</strong></p><p>Mararaba, Karu LGA,<br>Nasarawa State, Nigeria</p><p class="small-note">Please contact us to confirm product availability and details before visiting.</p></div><div class="contact-card"><h3>Call or WhatsApp Us</h3><p><strong>+234 902 770 2884</strong></p><div class="contact-actions"><a href="tel:+2349027702884">Call Number 1</a><a class="whatsapp" href="https://wa.me/2349027702884" target="_blank" rel="noopener">WhatsApp Number 1</a></div><p><strong>+234 907 112 0203</strong></p><div class="contact-actions"><a href="tel:+2349071120203">Call Number 2</a><a class="whatsapp" href="https://wa.me/2349071120203" target="_blank" rel="noopener">WhatsApp Number 2</a></div></div></div></div></section>
+</main><footer><div class="container">© 2026 <strong>A Square Nigeria Ltd</strong>. All rights reserved.</div></footer>
 <script>
-const filterButtons = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.product-card');
-
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
+  const filterButtons = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('.product-card');
+  filterButtons.forEach(button => button.addEventListener('click', () => {
     filterButtons.forEach(item => item.classList.remove('active'));
     button.classList.add('active');
-
     const filter = button.dataset.filter;
-
-    cards.forEach(card => {
-      card.hidden = filter !== 'all' &&
-                    card.dataset.category !== filter;
-    });
-  });
-});
+    cards.forEach(card => { card.hidden = filter !== 'all' && card.dataset.category !== filter; });
+  }));
 </script>
 </body>
 </html>
