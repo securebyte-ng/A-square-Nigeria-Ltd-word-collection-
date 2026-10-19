@@ -116,6 +116,21 @@ footer strong { color:white; }
   .service-grid,.gallery,.video-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
   section { padding:48px 0; }
 }
+  
+/* Fix the Business Address card */
+.contact-grid > .contact-card:first-child {
+  height: auto;
+  min-height: 0;
+  padding: 24px;
+  align-self: start;
+}
+
+.contact-grid > .contact-card:first-child p {
+  margin: 12px 0;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
 </style>
 </head>
 
