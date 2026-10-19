@@ -115,30 +115,6 @@ footer strong { color:white; }
   .service-grid,.gallery,.video-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
   section { padding:48px 0; }
 }
-  
-/* Fix the Business Address card */
-.contact-grid > .contact-card:first-child {
-  height: auto;
-  min-height: 0;
-  padding: 24px;
-  align-self: start;
-}
-
-.contact-grid > .contact-card:first-child p {
-  margin: 12px 0;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-.contact-card h3,
-.contact-card p,
-.contact-card strong {
-  color: #17365d !important;
-  display: block;
-  visibility: visible;
-  opacity: 1;
-}
-
 </style>
 </head>
 
@@ -239,31 +215,13 @@ footer strong { color:white; }
       <h2>Contact A Square Nigeria Ltd</h2>
       <p>Contact us by phone or WhatsApp for product enquiries.</p>
     </div>
-    
-       
-<div class="contact-card">
-  <h3>Business Address</h3>
-
-  <div class="business-address">
-    <p><strong>A Square Nigeria Ltd</strong></p>
-
-    <p>
-      Mararaba, Karu LGA,<br>
-      Nasarawa State, Nigeria
-    </p>
-
-    <p>
-      <strong>Landmark:</strong><br>
-      Alkum Plaza, opposite Building Materials
-    </p>
-
-    <p>
-      Please contact us to confirm product availability
-      before visiting.
-       </p>
-       </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Business Address</h3>
+        <p><strong>A Square Nigeria Ltd</strong></p>
+        <p>Mararaba, Karu LGA,<br>Nasarawa State, Nigeria</p>
+        <p>Please contact us to confirm product availability before visiting.</p>
       </div>
-
       <div class="contact-card">
         <h3>Call or WhatsApp Us</h3>
         <p><strong>+234 902 770 2884</strong></p>
