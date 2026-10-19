@@ -1033,7 +1033,9 @@
           </p>
         </div>
 
-        <div class="video-grid">
+      <div class="video-grid" id="videoGallery">
+         <p id="videoStatus">Loading product videos...</p>
+     </div>     
 
           <article class="video-card">
             <video controls preload="metadata" playsinline>
@@ -1208,62 +1210,167 @@
     </div>
   </footer>
 
-  <script>
-    // Product category filters
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const productCards = document.querySelectorAll(".product-card");
+  
+<script>
+const repo = "securebyte-ng/A-square-Nigeria-Ltd-word-collection-";
+const api = `https://api.github.com/repos/${repo}/contents/assets`;
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const selectedCategory = button.dataset.filter;
+const gallery = document.getElementById("productGallery");
+const videoGallery = document.getElementById("videoGallery");
+const galleryStatus = document.getElementById("galleryStatus");
+const videoStatus = document.getElementById("videoStatus");
 
-        filterButtons.forEach((item) => {
-          const active = item === button;
-          item.classList.toggle("active", active);
-          item.setAttribute("aria-pressed", String(active));
-        });
+function categoryFor(name) {
+  const n = name.toLowerCase();
+  if (/pipe|hose/.test(n)) return "pipes";
+  if (/mirror|led/.test(n)) return "mirrors";
+  if (/toilet|wc/.test(n)) return "toilets";
+  if (/basin|bathtub|bath|sink/.test(n)) return "basins";
+  return "other";
+}
 
-        productCards.forEach((card) => {
-          const show =
-            selectedCategory === "all" ||
-            card.dataset.category === selectedCategory;
+function titleFor(name) {
+  return name
+    .replace(/\.[^.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
 
-          card.hidden = !show;
-        });
-      });
+async function loadFiles(folder) {
+  const response = await fetch(`${api}/${folder}`);
+  if (!response.ok) throw new Error("Could not retrieve " + folder);
+  return response.json();
+}
+
+async function loadImages() {
+  try {
+    const files = await loadFiles("images");
+    const images = files.filter(file =>
+      file.type === "file" &&
+      /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(file.name)
+    );
+
+    gallery.replaceChildren();
+
+    if (!images.length) {
+      gallery.textContent = "No supported image files were found.";
+      return;
+    }
+
+    images.forEach(file => {
+      const card = document.createElement("article");
+      card.className = "product-card";
+      card.dataset.category = categoryFor(file.name);
+
+      const img = document.createElement("img");
+      img.src = file.download_url;
+      img.alt = titleFor(file.name);
+      img.loading = "lazy";
+      img.onerror = () => card.remove();
+
+      const info = document.createElement("div");
+      info.className = "product-info";
+
+      const heading = document.createElement("h3");
+      heading.textContent = titleFor(file.name);
+
+      const description = document.createElement("p");
+      description.textContent = "Contact us for price and availability.";
+
+      const link = document.createElement("a");
+      link.href = "#contact";
+      link.textContent = "Enquire about this product →";
+
+      info.append(heading, description, link);
+      card.append(img, info);
+      gallery.append(card);
     });
 
-    // Prevent multiple videos from playing at the same time.
-    const videos = document.querySelectorAll(".video-card video");
+    galleryStatus?.remove();
+    applyFilter("all");
 
-    videos.forEach((video) => {
-      video.addEventListener("play", () => {
-        videos.forEach((otherVideo) => {
-          if (otherVideo !== video) {
-            otherVideo.pause();
-          }
-        });
-      });
+    // Restore the pipes image as the home-page background.
+    const heroImage = images.find(file =>
+      /blue-plumbing-pipes/i.test(file.name)
+    );
+
+    if (heroImage) {
+      document.querySelector(".hero").style.backgroundImage =
+        `linear-gradient(120deg, rgba(3,35,75,.82), rgba(7,104,184,.55)), url("${heroImage.download_url}")`;
+      document.querySelector(".hero").style.backgroundPosition = "center";
+      document.querySelector(".hero").style.backgroundSize = "cover";
+    }
+  } catch (error) {
+    galleryStatus.textContent =
+      "Pictures could not load. Please check the repository and internet connection.";
+  }
+}
+
+function applyFilter(filter) {
+  document.querySelectorAll(".product-card").forEach(card => {
+    card.hidden =
+      filter !== "all" && card.dataset.category !== filter;
+  });
+
+  document.querySelectorAll(".filter").forEach(button => {
+    button.classList.toggle("active", button.dataset.filter === filter);
+  });
+}
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    applyFilter(button.dataset.filter);
+  });
+});
+
+async function loadVideos() {
+  try {
+    const files = await loadFiles("videos");
+    const videos = files
+      .filter(file =>
+        file.type === "file" &&
+        /\.(mp4|webm|ogg|mov|m4v)$/i.test(file.name)
+      )
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    videoGallery.replaceChildren();
+
+    if (!videos.length) {
+      videoGallery.textContent = "No supported video files were found.";
+      return;
+    }
+
+    videos.forEach(file => {
+      const card = document.createElement("article");
+      card.className = "video-card";
+
+      const video = document.createElement("video");
+      video.controls = true;
+      video.preload = "metadata";
+      video.playsInline = true;
+
+      const source = document.createElement("source");
+      source.src = file.download_url;
+      video.append(source);
+
+      const caption = document.createElement("p");
+      caption.textContent = titleFor(file.name);
+
+      card.append(video, caption);
+      videoGallery.append(card);
     });
 
-    // Report missing product images clearly in the browser console.
-    document.querySelectorAll(".product-image img").forEach((image) => {
-      image.addEventListener("error", () => {
-        console.warn("Product image could not be loaded:", image.src);
-      });
-    });
+    videoStatus?.remove();
+  } catch (error) {
+    videoStatus.textContent =
+      "Videos could not load. Please check the repository and internet connection.";
+  }
+}
 
-    // Report missing video files clearly in the browser console.
-    videos.forEach((video) => {
-      video.addEventListener("error", () => {
-        const source = video.querySelector("source");
-        console.warn(
-          "Video could not be loaded. Check its GitHub filename and format:",
-          source ? source.src : video.currentSrc
-        );
-      });
-    });
-  </script>
+loadImages();
+loadVideos();
+</script>
+
 
 </body>
 </html>
